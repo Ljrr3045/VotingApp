@@ -6,6 +6,7 @@ async function main() {
   const votinProxy = await upgrades.deployProxy(VotingSistem, {initializer: "initProces"});
 
   console.log("Address of Proxy Contract", votinProxy.address);
+
 }
 
 main()

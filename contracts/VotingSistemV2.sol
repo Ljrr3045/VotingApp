@@ -5,7 +5,7 @@ pragma solidity ^0.8.1;
 import "./Regist.sol";
 import "./CanditContract.sol";
 
-contract VotingSistem is Regist, CanditContract {
+contract VotingSistemV2 is Regist, CanditContract {
 
     modifier timeVote() {
         require (electionState == ELECTIONSTATE.start, "Election not Start");
@@ -43,5 +43,9 @@ contract VotingSistem is Regist, CanditContract {
         registers[tx.origin].voting = true;
 
         emit userVote (tx.origin, "User vote");
+    }
+
+    function isAv2() public pure returns(bool){
+        return true;
     }
 }

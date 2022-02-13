@@ -1,16 +1,14 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.1;
 
-contract CanditContract {
+import "./OwnerContract.sol";
 
-    uint timeOfElection;
-    address owner;
+contract CanditContract is OwnerContract {
 
-    modifier onlyOwner() {
-        require(tx.origin == owner);
-        _;
-    }
+    uint internal timeOfElection;
+    bool private initConst;
+    bool private initConst2;
 
     enum ELECTIONSTATE {notStart, start}
 
@@ -28,9 +26,11 @@ contract CanditContract {
 
     Candit[] public candits;
 
-    function initProces() internal {
+    function initProces() public {
+        require(initConst == false, "This variable are init");
         electionState = ELECTIONSTATE.notStart;
-        owner = tx.origin;
+        asignOwner();
+        initConst = true;
     }
 
     function RegistCandit(address _direction) public onlyOwner {
@@ -48,7 +48,9 @@ contract CanditContract {
 
     function starElection () external onlyOwner{
         require (candits.length >= 2, "Need inscribe more candidates");
+        require (initConst2 == false, "Election is start");
         electionState = ELECTIONSTATE.start;
         timeOfElection = block.timestamp + 604800;
+        initConst2 = true;
     }
 }
