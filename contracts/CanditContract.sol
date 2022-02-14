@@ -58,8 +58,8 @@ contract CanditContract is OwnerContract {
     ///@notice function to register a candidate, only the address of the candidate will be passed as a parameter
     ///@dev only the owner can call this function
     function RegistCandit(address _direction) public onlyOwner confirmCandit(_direction) {
+        require (electionState == ELECTIONSTATE.notStart,"election started, cannot register more candidates");
         candits.push(Candit(_direction,(candits.length + 1),0,0,0 ));
-
         emit canditRegist (_direction, candits.length, "Candit registed");
     }
 

@@ -61,5 +61,9 @@ describe("CanditContract", () => {
         it("Error: Should not start the electoral process two time", async ()=> {
             await expect(canditContract.connect(deployer).starElection()).to.be.revertedWith("Election is start");
         });
+
+        it("Error: Should not register candidates if the election started", async ()=> {
+            await expect(canditContract.connect(deployer).RegistCandit(cand3.address)).to.be.revertedWith("election started, cannot register more candidates");
+        });
     });
 });
