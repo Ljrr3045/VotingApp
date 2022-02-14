@@ -16,7 +16,7 @@ describe("OwnerContrac", () => {
         expect(await canditContract.owner()).to.equal(deployer.address);
     });
 
-    it("Another address could not change the owner", async ()=> {
+    it("Error: Another address could not change the owner", async ()=> {
         await expect(canditContract.connect(person2)._transferOwnership(person3.address)).to.be.revertedWith("Is not the owner");
     });
 

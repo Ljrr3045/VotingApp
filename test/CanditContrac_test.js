@@ -10,7 +10,7 @@ describe("CanditContract", () => {
         [deployer, cand1, cand2, cand3] = await ethers.getSigners();
     });
 
-    describe("Step 1", async ()=> {
+    describe("Verification that the contract was correctly implemented", async ()=> {
         it("The initProces pseudo-constructor variables should be initialized", async() =>{
             await canditContract.connect(deployer).initProces();
 
@@ -18,12 +18,12 @@ describe("CanditContract", () => {
             expect(await canditContract.owner()).to.equal(deployer.address);
         });
 
-        it("InitProces pseudo constructor variables should not be initialized a second time", async ()=> {
+        it("Error: InitProces pseudo constructor variables should not be initialized a second time", async ()=> {
             await expect(canditContract.connect(deployer).initProces()).to.be.revertedWith("This variable are init");
         });
     });
 
-    describe("Step 2", async ()=> {
+    describe("Candidate Registration Verification", async ()=> {
         it("Should be able to register candidates", async ()=>{
             await canditContract.connect(deployer).RegistCandit(cand1.address);
             await canditContract.connect(deployer).RegistCandit(cand2.address);
@@ -37,17 +37,17 @@ describe("CanditContract", () => {
             assert(id2.toNumber() === 2);
         });
 
-        it("Should not register the same candidate twice", async ()=> {
+        it("Error: Should not register the same candidate two time", async ()=> {
             await expect(canditContract.connect(deployer).RegistCandit(cand1.address)).to.be.revertedWith("This candit is are registred");
         });
 
-        it("Only can to register the owner", async ()=> {
+        it("Error: Only can to register the owner", async ()=> {
             await expect(canditContract.connect(cand1).RegistCandit(cand3.address)).to.be.revertedWith("Is not the owner");
         });
     });
 
-    describe("Step 3", async ()=> {
-        it("Only the admin can start the lectio", async ()=>{
+    describe("Verification that the electoral process began", async ()=> {
+        it("Error: Only the admin can start the lectio", async ()=>{
             await expect(canditContract.connect(cand1).starElection()).to.be.revertedWith("Is not the owner"); 
         });
 
@@ -58,7 +58,7 @@ describe("CanditContract", () => {
             assert(init == 1);
         });
 
-        it("Should not start the electoral process two time", async ()=> {
+        it("Error: Should not start the electoral process two time", async ()=> {
             await expect(canditContract.connect(deployer).starElection()).to.be.revertedWith("Election is start");
         });
     });

@@ -18,7 +18,7 @@ let Regist, regist, deployer, addr1;
       assert(voting == false); 
     });
 
-    it("should not be able to register already registered user", async() =>{ 
+    it("Error: Should not be able to register already registered user", async() =>{ 
         await expect(regist.connect(addr1).regis()).to.be.revertedWith('You are register');
     });
 });

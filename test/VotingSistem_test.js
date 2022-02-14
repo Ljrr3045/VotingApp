@@ -19,9 +19,9 @@ describe("VotingSistem", () => {
         await votingSistem.connect(cand2).regis();
     });
 
-    describe("Step 1", async ()=> {
+    describe("Verification that the electoral process began", async ()=> {
 
-        it("If the election hasn't started you shouldn't be able to vote",async () =>{
+        it("Error: If the election hasn't started you shouldn't be able to vote",async () =>{
             await expect(votingSistem.connect(per1).election(1,1,1)).to.be.revertedWith("Election not Start");
         });
 
@@ -30,14 +30,14 @@ describe("VotingSistem", () => {
         });
     });
 
-    describe("Step 2", async ()=>{
+    describe("Verification that voters are registered", async ()=>{
 
-        it("should not vote if a person is not registered", async ()=> {
+        it("Error: Should not vote if a person is not registered", async ()=> {
             await expect(votingSistem.connect(per3).election(1,1,1)).to.be.revertedWith("User not register");
         });
     });
 
-    describe("step 3", async ()=> {
+    describe("Verification of the operation of the votes", async ()=> {
         it("Error: Election data must be valid", async ()=> {
             await expect(votingSistem.connect(per2).election(3,2,2)).to.be.revertedWith("Your votes elections is not are valid");
             await expect(votingSistem.connect(per2).election(2,3,2)).to.be.revertedWith("Your votes elections is not are valid");
@@ -50,7 +50,7 @@ describe("VotingSistem", () => {
         });
     });
 
-    describe("Step 3", async ()=> {
+    describe("Verification of the functioning of the votes of the candidates", async ()=> {
         it("Error: A candidate should not vote for himself", async ()=> {
             await expect(votingSistem.connect(cand1).election(1,2,2)).to.be.revertedWith("Not can vote for yourself for President");
             await expect(votingSistem.connect(cand1).election(2,1,2)).to.be.revertedWith("Not can vote for yourself for Governor");
@@ -58,7 +58,7 @@ describe("VotingSistem", () => {
         });
     });
 
-    describe("step 4", async ()=> {
+    describe("Verification of results and end of election day", async ()=> {
         it("Votes should be recorded", async ()=> {
             await votingSistem.connect(per2).election(1,2,1);
 
