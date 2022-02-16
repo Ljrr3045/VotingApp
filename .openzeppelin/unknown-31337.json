@@ -7,7 +7,7 @@
       "hash": "0x2748d8527dbf496cc7ee5a2094a3211c9b2de9e9a4a32053c33e525ce6a352da",
       "type": 2,
       "accessList": [],
-      "blockHash": "0xb706d5dd53788da5b2cd53d706964797124258a5d1853246cf9854a3bdf4417d",
+      "blockHash": "0xd1326d8284de77a05a33057a65b7a429befd95711e6fec5abfd295bb66707da5",
       "blockNumber": 20,
       "transactionIndex": 0,
       "confirmations": 1,
@@ -64,13 +64,13 @@
       "kind": "transparent"
     },
     {
-      "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
-      "txHash": "0xec95cd55f573096e0c5ea5ae72ac99cae70822bf29cf5a3757789934a42440d4",
+      "address": "0x9A676e781A523b5d0C0e43731313A708CB607508",
+      "txHash": "0xd5fd9f386401b40b551e2a168142fbc7c67a5f8115d5d6fb3ce4ed1a42008464",
       "kind": "transparent"
     },
     {
-      "address": "0x9A676e781A523b5d0C0e43731313A708CB607508",
-      "txHash": "0xd5fd9f386401b40b551e2a168142fbc7c67a5f8115d5d6fb3ce4ed1a42008464",
+      "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+      "txHash": "0x4fccd73669e61ec0ccdd404e1e727c0b353df398cf5f1e736c6c6961ea2e5197",
       "kind": "transparent"
     },
     {
@@ -276,112 +276,6 @@
           },
           "t_bool": {
             "label": "bool"
-          }
-        }
-      }
-    },
-    "099394f8a532afc470eeabfdd83b17ae5562d786fc2df78c5294d9cfd368cc83": {
-      "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-      "txHash": "0x15ae8cbd01886e1389d15e414055f2e9c04e84366b0feb441a7426b0c229f5ff",
-      "layout": {
-        "storage": [
-          {
-            "contract": "Regist",
-            "label": "registers",
-            "type": "t_mapping(t_address,t_struct(Register)208_storage)",
-            "src": "contracts\\Regist.sol:14"
-          },
-          {
-            "contract": "OwnerContract",
-            "label": "owner",
-            "type": "t_address",
-            "src": "contracts\\OwnerContract.sol:6"
-          },
-          {
-            "contract": "CanditContract",
-            "label": "timeOfElection",
-            "type": "t_uint256",
-            "src": "contracts\\CanditContract.sol:9"
-          },
-          {
-            "contract": "CanditContract",
-            "label": "initConst",
-            "type": "t_bool",
-            "src": "contracts\\CanditContract.sol:10"
-          },
-          {
-            "contract": "CanditContract",
-            "label": "electionState",
-            "type": "t_enum(ELECTIONSTATE)11",
-            "src": "contracts\\CanditContract.sol:14"
-          },
-          {
-            "contract": "CanditContract",
-            "label": "candits",
-            "type": "t_array(t_struct(Candit)33_storage)dyn_storage",
-            "src": "contracts\\CanditContract.sol:26"
-          }
-        ],
-        "types": {
-          "t_uint256": {
-            "label": "uint256"
-          },
-          "t_bool": {
-            "label": "bool"
-          },
-          "t_enum(ELECTIONSTATE)11": {
-            "label": "enum CanditContract.ELECTIONSTATE",
-            "members": [
-              "notStart",
-              "start"
-            ]
-          },
-          "t_array(t_struct(Candit)33_storage)dyn_storage": {
-            "label": "struct CanditContract.Candit[]"
-          },
-          "t_struct(Candit)33_storage": {
-            "label": "struct CanditContract.Candit",
-            "members": [
-              {
-                "label": "direction",
-                "type": "t_address"
-              },
-              {
-                "label": "Id",
-                "type": "t_uint256"
-              },
-              {
-                "label": "voteForPresident",
-                "type": "t_uint256"
-              },
-              {
-                "label": "voteForGovernor",
-                "type": "t_uint256"
-              },
-              {
-                "label": "voteForMayor",
-                "type": "t_uint256"
-              }
-            ]
-          },
-          "t_address": {
-            "label": "address"
-          },
-          "t_mapping(t_address,t_struct(Register)208_storage)": {
-            "label": "mapping(address => struct Regist.Register)"
-          },
-          "t_struct(Register)208_storage": {
-            "label": "struct Regist.Register",
-            "members": [
-              {
-                "label": "register",
-                "type": "t_bool"
-              },
-              {
-                "label": "voting",
-                "type": "t_bool"
-              }
-            ]
           }
         }
       }
@@ -624,7 +518,7 @@
     },
     "99e6963db76f0d701fa4eae80007ad66280bd4613b0c5c17998eb5b37e4714be": {
       "address": "0x0DCd1Bf9A1b36cE34237eEaFef220932846BCD82",
-      "txHash": "0x04a97cebb93466bd6ff41c5c25f61b3c33ead984cc504cda4e81acc68bde8f60",
+      "txHash": "0x85f16c81c6b6648e4b235c9c0e9317211f90762c9d35f07e82f1e83bffda4879",
       "layout": {
         "storage": [
           {
@@ -742,7 +636,7 @@
     },
     "5bdcf2e84b97bda4df61f1226de46e285d9ea805a37d44a8c32aeec5aa38ba1d": {
       "address": "0x959922bE3CAee4b8Cd9a407cc3ac1C251C2007B1",
-      "txHash": "0x974dd41acb16caf304f5b8ba0d36def9f8c12e18377af26690ce36bdb4db6d9c",
+      "txHash": "0x8a475106d029c9cd9b30221755a448861a3d9b90b06cd906f42683502d44a9ab",
       "layout": {
         "storage": [
           {
